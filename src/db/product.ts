@@ -25,6 +25,7 @@ const ProductSchema = new mongoose.Schema({
   image: {
     type: String,
     required: false,
+    trim: true,
   },
   status: {
     type: String,
@@ -40,10 +41,8 @@ const ProductSchema = new mongoose.Schema({
   category: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category",
-    required: true, // Ensure every product has a category
+    required: true,
   },
 });
-
-// turn schema into a model
 
 export default mongoose.model("Product", ProductSchema);
